@@ -2,8 +2,8 @@ FROM manageiq/ruby
 MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs
-ARG REF=master
-ARG GHORG=ManageIQ
+ARG REF=dedicated
+ARG GHORG=simon3z
 
 ## Set ENV, LANG only needed if building with docker-1.8
 ENV TERM=xterm \
