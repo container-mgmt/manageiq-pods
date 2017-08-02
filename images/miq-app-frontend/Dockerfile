@@ -1,4 +1,4 @@
-FROM manageiq/manageiq-pods:backend-latest
+FROM cfme/miq-app:latest
 MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs

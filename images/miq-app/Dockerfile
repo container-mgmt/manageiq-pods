@@ -55,6 +55,7 @@ RUN yum -y install centos-release-scl-rh && \
                    sqlite-devel            \
                    sysvinit-tools          \
                    which                   \
+                   openssl                 \
                    &&                      \
     yum clean all
 
