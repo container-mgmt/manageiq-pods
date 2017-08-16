@@ -3,6 +3,7 @@ MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs
 ARG REF=master
+ARG GHORG=ManageIQ
 
 ## Set ENV, LANG only needed if building with docker-1.8
 ENV TERM=xterm \
@@ -11,7 +12,8 @@ ENV TERM=xterm \
     APP_ROOT_PERSISTENT=/persistent \
     APPLIANCE_ROOT=/opt/manageiq/manageiq-appliance \
     CONTAINER_SCRIPTS_ROOT=/opt/manageiq/container-scripts \
-    IMAGE_VERSION=${REF}
+    IMAGE_VERSION=${REF} \
+    ORG=${GHORG}
 
 ## Atomic/OpenShift Labels
 LABEL name="manageiq" \
@@ -63,12 +65,12 @@ RUN yum -y install centos-release-scl-rh && \
 
 ## GIT clone manageiq-appliance
 RUN mkdir -p ${APPLIANCE_ROOT} && \
-    curl -L https://github.com/ManageIQ/manageiq-appliance/tarball/${REF} | tar vxz -C ${APPLIANCE_ROOT} --strip 1
+    curl -L https://github.com/${ORG}/manageiq-appliance/tarball/${IMAGE_VERSION} | tar vxz -C ${APPLIANCE_ROOT} --strip 1
 
 ## GIT clone manageiq
 RUN mkdir -p ${APP_ROOT} && \
     ln -vs ${APP_ROOT} /opt/manageiq/manageiq && \
-    curl -L https://github.com/ManageIQ/manageiq/tarball/${REF} | tar vxz -C ${APP_ROOT} --strip 1
+    curl -L https://github.com/${ORG}/manageiq/tarball/${IMAGE_VERSION} | tar vxz -C ${APP_ROOT} --strip 1
 
 ## Setup environment
 RUN ${APPLIANCE_ROOT}/setup && \
