@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  labels:
+    build: miq-app-local
+  name: miq-app-local
+  namespace: cfme
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: miq-app-local:latest
+  runPolicy: Serial
+  source:
+    contextDir: images/miq-app
+    git:
+      ref: master
+      uri: file:///root/manageiq-pods
+    type: Git
+  strategy:
+    dockerStrategy:
+      buildArgs:
+      - name: REF
+        value: dedicated
+      - name: GHORG
+        value: simon3z
+      from:
+        kind: ImageStreamTag
+        name: ruby:latest
+    type: Docker

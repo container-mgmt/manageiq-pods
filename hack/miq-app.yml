@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  labels:
+    build: miq-app-local
+  name: miq-app-local
+  namespace: cfme
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: docker-registry.default.svc:5000/cfme/miq-app-local

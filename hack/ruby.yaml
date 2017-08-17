@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/image.dockerRepositoryCheck: 2017-08-16T09:20:48Z
+  labels:
+    build: miq-app-local
+  name: ruby
+  namespace: cfme
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/imported-from: manageiq/ruby
+    from:
+      kind: DockerImage
+      name: manageiq/ruby
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: docker-registry.default.svc:5000/cfme/ruby
+  tags:
+  - items:
+    - created: 2017-08-16T09:20:48Z
+      dockerImageReference: manageiq/ruby@sha256:d53342adcb29778f1aca8f8b70ed48197e0035587680c56d76d83f041d29fd50
+      generation: 2
+      image: sha256:d53342adcb29778f1aca8f8b70ed48197e0035587680c56d76d83f041d29fd50
+    tag: latest
