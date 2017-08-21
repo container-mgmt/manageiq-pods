@@ -3,7 +3,7 @@
 # Run this script on the master node after Origin has been deployed
 set -e -x
 
-echo "@@WARNING: Did you remember to change the NFS Server IP in @@"
+echo "@@WARNING: Did you remember to change the NFS Server IP in the pv templates?@@"
 
 mkdir -p /exports/miq-pv0{1,2,3}
 chgrp -R nfsnobody /exports/miq-pv0*

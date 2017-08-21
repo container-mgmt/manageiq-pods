@@ -3,7 +3,6 @@ kind: Template
 labels:
   template: manageiq-db-pv
 metadata:
-<<<<<<< HEAD
   name: manageiq-db-pv
   annotations:
     description: PV Template for MIQ PostgreSQL DB
