@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Run this script on the master node after Origin has been deployed
-set -e -x
+set -x
 
 # Currently this cannot be changed because hard-coded in the Dockerfile FROM of miq-app-frontend :-(
 export MIQPROJECT="cfme"
@@ -13,5 +13,8 @@ export PODS_PROJECT=https://github.com/ManageIQ/manageiq-pods
 #oc delete all --all
 oc delete -f templates/miq-sysadmin.yaml
 oc delete project cfme
-oc delete pv miq-pv01
+oc delete pvc manageiq-server-manageiq-0
 oc delete pv miq-pv02
+oc delete pv miq-pv01
+rm -rf /exports/miq-pv01/userdata/
+exportfs -ar

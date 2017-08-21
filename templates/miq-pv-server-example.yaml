@@ -3,6 +3,7 @@ kind: Template
 labels:
   template: manageiq-app-pv
 metadata:
+<<<<<<< HEAD
   name: manageiq-app-pv
   annotations:
     description: PV Template for MIQ Server
