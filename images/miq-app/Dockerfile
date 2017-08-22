@@ -2,8 +2,8 @@ FROM manageiq/ruby
 MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs
-ARG REF=master
-ARG GHORG=ManageIQ
+ARG REF=all-merged
+ARG GHORG=ilackarms
 
 ## Set ENV, LANG only needed if building with docker-1.8
 ENV TERM=xterm \
@@ -66,7 +66,7 @@ RUN yum -y install centos-release-scl-rh && \
 
 ## GIT clone manageiq-appliance
 RUN mkdir -p ${APPLIANCE_ROOT} && \
-    curl -L https://github.com/${ORG}/manageiq-appliance/tarball/${IMAGE_VERSION} | tar vxz -C ${APPLIANCE_ROOT} --strip 1
+    curl -L https://github.com/${ORG}/manageiq-appliance/tarball/master | tar vxz -C ${APPLIANCE_ROOT} --strip 1
 
 ## GIT clone manageiq
 RUN mkdir -p ${APP_ROOT} && \
