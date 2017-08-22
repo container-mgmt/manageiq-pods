@@ -22,7 +22,7 @@ export MIQPROJECT="cfme"
 export OC_USER=scweiss
 export OC_ADMIN=system:admin
 export PODS_PROJECT=https://github.com/ilackarms/manageiq-pods
-export REF=master
+export REF=all-merged
 export GHORG=ilackarms
 
 oc login -u ${OC_USER}

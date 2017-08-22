@@ -28,6 +28,7 @@ for ghuser in $(echo "yaacov ilackarms moolitayer"); do
 done
 git co -b all-merged
 git pull moolitayer new_providers
+git pull moolitayer add_monitoring_menus
 
 cd manageiq-providers-kubernetes
 for ghuser in $(echo "yaacov ilackarms moolitayer"); do
