@@ -27,6 +27,14 @@ export PODS_PROJECT=https://github.com/ilackarms/manageiq-pods
 export REF=all-merged
 export GHORG=ilackarms
 
+if [[ $1 == "deploy" ]]; then
+    oc process -n ${MIQPROJECT} -f templates/miq-template.yaml \
+    APPLICATION_IMG_NAME=docker-registry.default.svc:5000/cfme/miq-app-frontend \
+    FRONTEND_APPLICATION_IMG_TAG=latest \
+    | oc create -n ${MIQPROJECT} -f -
+    exit
+fi
+
 oadm policy add-cluster-role-to-user cluster-admin ${OC_USER}
 
 oc login -u ${OC_USER}
@@ -54,26 +62,3 @@ oc login -u ${OC_USER}
 
 oc -n cfme new-build --name=miq-app --context-dir=images/miq-app --build-arg=REF=${REF} --build-arg=GHORG=${GHORG} ${PODS_PROJECT}
 oc -n cfme new-build --name=miq-app-frontend --context-dir=images/miq-app-frontend --build-arg=REF=${REF} --build-arg=GHORG=${GHORG} ${PODS_PROJECT}
-
-ELAPSED=0
-export IMAGES_FINISHED="$(oc get pods | grep miq-app-frontend-*-build)"
-while [[ ${IMAGES_FINISHED} != *"Completed"* ]]; do
-    echo "waiting for miq frontend container to finish: ${ELAPSED}s elapsed"
-    sleep 2
-    ELAPSED=$(echo "$ELAPSED + 0.5" | bc)
-    IMAGES_FINISHED=$(oc get pods | grep miq-app-frontend-*-build)
-done
-
-ELAPSED=0
-export IMAGES_FINISHED="$(oc get pods | grep miq-app-.*-build)"
-while [[ ${IMAGES_FINISHED} != *"Completed"* ]]; do
-    echo "waiting for miq container to finish: ${ELAPSED}s elapsed"
-    sleep 2
-    ELAPSED=$(echo "$ELAPSED + 0.5" | bc)
-    IMAGES_FINISHED=$(oc get pods | grep miq-app-.*-build)
-done
-
-oc process -n ${MIQPROJECT} -f templates/miq-template.yaml \
-APPLICATION_IMG_NAME=docker-registry.default.svc:5000/cfme/miq-app-frontend \
-FRONTEND_APPLICATION_IMG_TAG=latest \
-| oc create -n ${MIQPROJECT} -f -
