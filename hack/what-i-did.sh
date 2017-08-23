@@ -5,6 +5,7 @@ set -e -x
 
 echo "@@WARNING: Did you remember to change the NFS Server IP in the pv templates?@@"
 
+rm -rf /exports/miq-pv0{1,2,3}
 mkdir -p /exports/miq-pv0{1,2,3}
 chgrp -R nfsnobody /exports/miq-pv0*
 chown -R nfsnobody /exports/miq-pv0*
@@ -15,6 +16,7 @@ cat > /etc/exports <<EOF
 /exports/miq-pv02 *(rw,root_squash,no_wdelay)
 /exports/miq-pv03 *(rw,root_squash,no_wdelay)
 EOF
+exportfs -ar
 
 # Currently this cannot be changed because hard-coded in the Dockerfile FROM of miq-app-frontend :-(
 export MIQPROJECT="cfme"
@@ -24,6 +26,8 @@ export OC_ADMIN=system:admin
 export PODS_PROJECT=https://github.com/ilackarms/manageiq-pods
 export REF=all-merged
 export GHORG=ilackarms
+
+oadm policy add-cluster-role-to-user cluster-admin ${OC_USER}
 
 oc login -u ${OC_USER}
 oc new-project ${MIQPROJECT} --skip-config-write --display-name="CloudForms"
@@ -52,19 +56,19 @@ oc -n cfme new-build --name=miq-app --context-dir=images/miq-app --build-arg=REF
 oc -n cfme new-build --name=miq-app-frontend --context-dir=images/miq-app-frontend --build-arg=REF=${REF} --build-arg=GHORG=${GHORG} ${PODS_PROJECT}
 
 ELAPSED=0
-IMAGES_FINISHED=$(oc get pods | grep miq-app-frontend-*-build)
-while [[ $IMAGES_FINISHED != *"Completed"* ]]; do
-    echo "waiting for miq frontend container to finish \(${ELAPSED}s elapsed)"
-    sleep 0.5
+export IMAGES_FINISHED="$(oc get pods | grep miq-app-frontend-*-build)"
+while [[ ${IMAGES_FINISHED} != *"Completed"* ]]; do
+    echo "waiting for miq frontend container to finish: ${ELAPSED}s elapsed"
+    sleep 2
     ELAPSED=$(echo "$ELAPSED + 0.5" | bc)
     IMAGES_FINISHED=$(oc get pods | grep miq-app-frontend-*-build)
 done
 
 ELAPSED=0
-IMAGES_FINISHED=$(oc get pods | grep miq-app-.*-build)
-while [[ $IMAGES_FINISHED != *"Completed"* ]]; do
-    echo 'waiting for miq container to finish'
-    sleep 0.5
+export IMAGES_FINISHED="$(oc get pods | grep miq-app-.*-build)"
+while [[ ${IMAGES_FINISHED} != *"Completed"* ]]; do
+    echo "waiting for miq container to finish: ${ELAPSED}s elapsed"
+    sleep 2
     ELAPSED=$(echo "$ELAPSED + 0.5" | bc)
     IMAGES_FINISHED=$(oc get pods | grep miq-app-.*-build)
 done

@@ -49,9 +49,11 @@ git co -b all-merged
 git pull moolitayer prometheus_alerts
 
 cd ${BASEDIR}/manageiq-ui-classic
-for ghuser in $(echo "ilackarms yaacov"); do
+for ghuser in $(echo "ilackarms yaacov nimrodshn"); do
     git remote add ${ghuser} https://github.com/${ghuser}/manageiq-ui-classic
     git fetch ${ghuser}
 done
 git co -b all-merged
 git pull yaacov add-alerts-to-dashboard
+git pull yaacov add-prometheus-ad-hoc-metrics
+git pull nimrodshn support_metrics_dropdown

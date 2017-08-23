@@ -1,0 +1,1 @@
+hack/destroy.sh
