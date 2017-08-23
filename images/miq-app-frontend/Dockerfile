@@ -1,4 +1,4 @@
-FROM manageiq/manageiq-pods:backend-latest
+FROM ilackarms/miq-app-frontend:backend-latest
 MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs
