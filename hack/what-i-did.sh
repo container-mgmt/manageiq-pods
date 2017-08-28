@@ -3,8 +3,6 @@
 # Run this script on the master node after Origin has been deployed
 set -e -x
 
-echo "@@WARNING: Did you remember to change the NFS Server IP in the pv templates?@@"
-
 rm -rf /exports/miq-pv0{1,2,3}
 mkdir -p /exports/miq-pv0{1,2,3}
 chgrp -R nfsnobody /exports/miq-pv0*
@@ -27,18 +25,12 @@ export PODS_PROJECT=https://github.com/ilackarms/manageiq-pods
 export REF=all-merged
 export GHORG=ilackarms
 
-if [[ $1 == "deploy" ]]; then
-    oc process -n ${MIQPROJECT} -f templates/miq-template.yaml \
-    APPLICATION_IMG_NAME=docker-registry.default.svc:5000/cfme/miq-app-frontend \
-    FRONTEND_APPLICATION_IMG_TAG=latest \
-    | oc create -n ${MIQPROJECT} -f -
-    exit
-fi
-
 oadm policy add-cluster-role-to-user cluster-admin ${OC_USER}
 
 oc login -u ${OC_USER}
 oc new-project ${MIQPROJECT} --skip-config-write --display-name="CloudForms"
+
+export MASTER_HOST=$(oc get nodes | grep master | awk '{print $1}')
 
 oc project ${MIQPROJECT}
 
@@ -55,10 +47,17 @@ oc policy add-role-to-user view system:serviceaccount:${MIQPROJECT}:miq-orchestr
 oc policy add-role-to-user edit system:serviceaccount:${MIQPROJECT}:miq-orchestrator -n ${MIQPROJECT}
 
 oc login -u ${OC_ADMIN}
-oc create -f templates/miq-pv-db-example.yaml
-oc create -f templates/miq-pv-server-example.yaml
+oc process -f templates/miq-nfs-pvs-template.yaml NFS_HOST=${MASTER_HOST} | oc create -f -
 
 oc login -u ${OC_USER}
 
-oc -n cfme new-build --name=miq-app --context-dir=images/miq-app --build-arg=REF=${REF} --build-arg=GHORG=${GHORG} ${PODS_PROJECT}
-oc -n cfme new-build --name=miq-app-frontend --context-dir=images/miq-app-frontend --build-arg=REF=${REF} --build-arg=GHORG=${GHORG} ${PODS_PROJECT}
+#oc -n cfme new-build --name=miq-app --context-dir=images/miq-app --build-arg=REF=${REF} --build-arg=GHORG=${GHORG} ${PODS_PROJECT}
+#oc -n cfme new-build --name=miq-app-frontend --context-dir=images/miq-app-frontend --build-arg=REF=${REF} --build-arg=GHORG=${GHORG} ${PODS_PROJECT}
+
+oc process -n ${MIQPROJECT} -f templates/miq-template.yaml \
+   APPLICATION_IMG_NAME=docker.io/ilackarms/frontend \
+   FRONTEND_APPLICATION_IMG_TAG=latest \
+   | oc create -n ${MIQPROJECT} -f -
+
+oc process -f templates/prometheus.yaml NAMESPACE=${MIQPROJECT} \
+   | oc create -n ${MIQPROJECT} -f -

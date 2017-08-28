@@ -1,4 +1,4 @@
-FROM ilackarms/miq-app-frontend:backend-latest
+FROM backend-new
 MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs
@@ -22,6 +22,8 @@ LABEL name="manageiq" \
       io.k8s.description="ManageIQ is a management and automation platform for virtual, private, and hybrid cloud infrastructures." \
       io.openshift.expose-services="80:http" \
       io.openshift.tags="ManageIQ,miq,manageiq"
+
+#COPY epel.repo.workaround /etc/yum.repos.d/epel.repo
 
 ## Install EPEL repo, yum necessary packages for the build without docs, clean all caches
 RUN yum -y install centos-release-scl-rh && \

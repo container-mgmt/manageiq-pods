@@ -11,6 +11,7 @@ export PODS_PROJECT=https://github.com/ManageIQ/manageiq-pods
 
 # tear it all down
 #oc delete all --all
+oc delete clusterrolebinding prometheus-cluster-reader
 oc delete -f templates/miq-sysadmin.yaml
 oc delete project cfme
 oc delete pvc manageiq-server-manageiq-0

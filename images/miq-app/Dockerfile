@@ -5,6 +5,8 @@ MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 ARG REF=all-merged
 ARG GHORG=ilackarms
 
+RUN echo "new build 1"
+
 ## Set ENV, LANG only needed if building with docker-1.8
 ENV TERM=xterm \
     CONTAINER=true \

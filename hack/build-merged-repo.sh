@@ -57,3 +57,4 @@ git co -b all-merged
 git pull yaacov add-alerts-to-dashboard
 git pull yaacov add-prometheus-ad-hoc-metrics
 git pull nimrodshn support_metrics_dropdown
+git pull nimrodshn add_alert_drop_down
