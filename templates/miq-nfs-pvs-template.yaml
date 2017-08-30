@@ -28,6 +28,44 @@ objects:
     nfs:
       path: "/exports/miq-pv02"
       server: "${NFS_HOST}"
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    name: prometheus-pv01
+  spec:
+    capacity:
+      storage: 10Gi
+    accessModes:
+    - ReadWriteOnce
+    nfs:
+      path: "/exports/prometheus-pv01"
+      server: "${NFS_HOST}"
+    persistentVolumeReclaimPolicy: Recycle
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    name: prometheus-pv02
+  spec:
+    capacity:
+      storage: 10Gi
+    accessModes:
+    - ReadWriteOnce
+    nfs:
+      path: "/exports/prometheus-pv02"
+      server: "${NFS_HOST}"
+    persistentVolumeReclaimPolicy: Recycle
+- apiVersion: v1
+  kind: PersistentVolume
+  metadata:
+    name: prometheus-pv03
+  spec:
+    capacity:
+      storage: 10Gi
+    accessModes:
+    - ReadWriteOnce
+    nfs:
+      path: "/exports/prometheus-pv03"
+      server: "${NFS_HOST}"
     persistentVolumeReclaimPolicy: Recycle
 parameters:
 - name: NFS_HOST
