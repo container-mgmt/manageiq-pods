@@ -27,34 +27,29 @@ for ghuser in $(echo "yaacov ilackarms moolitayer"); do
     git fetch ${ghuser}
 done
 git co -b all-merged
-git pull moolitayer new_providers
-git pull moolitayer add_monitoring_menus
+git pull --no-edit moolitayer new_providers
+git pull --no-edit moolitayer add_monitoring_menus
 
-cd manageiq-providers-kubernetes
+cd ../manageiq-providers-kubernetes
 for ghuser in $(echo "yaacov ilackarms moolitayer"); do
     git remote add ${ghuser} https://github.com/${ghuser}/manageiq-providers-kubernetes
     git fetch ${ghuser}
 done
 git co -b all-merged
-git pull yaacov add-prometheus-capture-context
-git pull yaacov add-prometheus-ad-hoc-metrics
-git pull moolitayer prometheus_alerts
+git pull --no-edit moolitayer prometheus_alerts
 
-cd ${BASEDIR}/manageiq-providers-openshift
+cd ../manageiq-providers-openshift
 for ghuser in $(echo "ilackarms moolitayer"); do
     git remote add ${ghuser} https://github.com/${ghuser}/manageiq-providers-openshift
     git fetch ${ghuser}
 done
 git co -b all-merged
-git pull moolitayer prometheus_alerts
+git pull --no-edit moolitayer prometheus_alerts
 
-cd ${BASEDIR}/manageiq-ui-classic
+cd ../manageiq-ui-classic
 for ghuser in $(echo "ilackarms yaacov nimrodshn"); do
     git remote add ${ghuser} https://github.com/${ghuser}/manageiq-ui-classic
     git fetch ${ghuser}
 done
 git co -b all-merged
-git pull yaacov add-alerts-to-dashboard
-git pull yaacov add-prometheus-ad-hoc-metrics
-git pull nimrodshn support_metrics_dropdown
-git pull nimrodshn add_alert_drop_down
+git pull --no-edit nimrodshn add_alert_drop_down
