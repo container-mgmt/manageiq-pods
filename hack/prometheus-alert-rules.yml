@@ -1,0 +1,20 @@
+groups:
+- name: example-rules
+  interval: 30s # defaults to global interval
+  rules:
+  - alert: Node Down
+    expr: up{job="kubernetes-nodes"} == 0
+    annotations:
+      miqTarget: "ContainerNode"
+      severity: "HIGH"
+      url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      message: "{{$labels.instance}} is down"
+      description: "{{$labels.instance}} is down_d"
+  - alert: Dummy Alert
+    expr: up{job="kubernetes-nodes"} > 0
+    annotations:
+      miqTarget: "ContainerNode"
+      severity: "HIGH"
+      url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      message: "{{$labels.instance}} is up! That's probably a good thing"
+      description: "{{$labels.instance}} is down_d"
