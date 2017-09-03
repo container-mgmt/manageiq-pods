@@ -4,23 +4,15 @@
 set -e -x
 
 rm -rf /exports/miq-pv0{1,2,3}
-rm -rf /exports/prometheus-pv0{1,2,3}
 mkdir -p /exports/miq-pv0{1,2,3}
-mkdir -p /exports/prometheus-pv0{1,2,3}
 chgrp -R nfsnobody /exports/miq-pv0*
-chgrp -R nfsnobody /exports/prometheus-pv0*
 chown -R nfsnobody /exports/miq-pv0*
-chown -R nfsnobody /exports/prometheus-pv0*
 chmod -R 777 /exports/miq-pv0*
-chmod -R 777 /exports/prometheus-pv0*
 
 cat > /etc/exports <<EOF
 /exports/miq-pv01 *(rw,root_squash,no_wdelay)
 /exports/miq-pv02 *(rw,root_squash,no_wdelay)
 /exports/miq-pv03 *(rw,root_squash,no_wdelay)
-/exports/prometheus-pv01 *(rw,root_squash,no_wdelay)
-/exports/prometheus-pv02 *(rw,root_squash,no_wdelay)
-/exports/prometheus-pv03 *(rw,root_squash,no_wdelay)
 EOF
 exportfs -ar
 
@@ -63,7 +55,7 @@ oc login -u ${OC_USER}
 #oc -n cfme new-build --name=miq-app-frontend --context-dir=images/miq-app-frontend --build-arg=REF=${REF} --build-arg=GHORG=${GHORG} ${PODS_PROJECT}
 
 oc process -n ${MIQPROJECT} -f templates/miq-template.yaml \
-   APPLICATION_IMG_NAME=docker.io/ilackarms/frontend \
+   APPLICATION_IMG_NAME="docker.io/ilackarms/miq-app-frontend" \
    FRONTEND_APPLICATION_IMG_TAG=latest \
    | oc create -n ${MIQPROJECT} -f -
 

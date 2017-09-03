@@ -1,4 +1,4 @@
-FROM BASE_IMAGE
+FROM miq-app-base
 MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs

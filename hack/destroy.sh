@@ -17,8 +17,5 @@ oc delete project cfme
 oc delete pvc manageiq-server-manageiq-0
 oc delete pv miq-pv02
 oc delete pv miq-pv01
-oc delete pv prometheus-pv01
-oc delete pv prometheus-pv02
-oc delete pv prometheus-pv03
 rm -rf /exports/miq-pv01/userdata/
 exportfs -ar
