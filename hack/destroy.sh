@@ -17,5 +17,11 @@ oc delete project cfme
 oc delete pvc manageiq-server-manageiq-0
 oc delete pv miq-pv02
 oc delete pv miq-pv01
+oc delete pv prometheus-alertmanager
+oc delete pv prometheus-alertbuffer
+oc delete pv prometheus
 rm -rf /exports/miq-pv01/userdata/
+rm -rf /exports/prometheus/*
+rm -rf /exports/prometheus-alertmanager/*
+rm -rf /exports/prometheus-alertbuffer/*
 exportfs -ar

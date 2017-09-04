@@ -16,23 +16,23 @@ cd ${BASEDIR}
 #    done
 #done
 
-git clone https://github.com/ManageIQ/manageiq
+#git clone https://github.com/ManageIQ/manageiq
 git clone https://github.com/ManageIQ/manageiq-providers-kubernetes
 git clone https://github.com/ManageIQ/manageiq-providers-openshift
 git clone https://github.com/ManageIQ/manageiq-ui-classic
 
-cd manageiq
-for ghuser in $(echo "yaacov ilackarms moolitayer"); do
-    git remote add ${ghuser} https://github.com/${ghuser}/manageiq
-    git fetch ${ghuser}
-done
-git co -b all-merged
-git pull --no-edit ilackarms use-my-gems
-git pull --no-edit moolitayer new_providers
-git pull --no-edit moolitayer add_monitoring_menus
-git push --set-upstream ilackarms all-merged --force
+#cd manageiq
+#for ghuser in $(echo "yaacov ilackarms moolitayer"); do
+#    git remote add ${ghuser} https://github.com/${ghuser}/manageiq
+#    git fetch ${ghuser}
+#done
+#git co -b all-merged
+#git pull --no-edit ilackarms use-my-gems
+#git pull --no-edit moolitayer new_providers
+#git pull --no-edit moolitayer add_monitoring_menus
+#git push --set-upstream ilackarms all-merged --force
 
-cd ../manageiq-providers-kubernetes
+cd ${BASEDIR}/manageiq-providers-kubernetes
 for ghuser in $(echo "yaacov ilackarms moolitayer"); do
     git remote add ${ghuser} https://github.com/${ghuser}/manageiq-providers-kubernetes
     git fetch ${ghuser}
@@ -41,7 +41,7 @@ git co -b all-merged
 git pull --no-edit moolitayer prometheus_alerts
 git push --set-upstream ilackarms all-merged --force
 
-cd ../manageiq-providers-openshift
+cd ${BASEDIR}/manageiq-providers-openshift
 for ghuser in $(echo "ilackarms moolitayer"); do
     git remote add ${ghuser} https://github.com/${ghuser}/manageiq-providers-openshift
     git fetch ${ghuser}
@@ -50,11 +50,12 @@ git co -b all-merged
 git pull --no-edit moolitayer prometheus_alerts
 git push --set-upstream ilackarms all-merged --force
 
-cd ../manageiq-ui-classic
+cd ${BASEDIR}/manageiq-ui-classic
 for ghuser in $(echo "ilackarms yaacov nimrodshn"); do
     git remote add ${ghuser} https://github.com/${ghuser}/manageiq-ui-classic
     git fetch ${ghuser}
 done
 git co -b all-merged
 git pull --no-edit nimrodshn add_alert_drop_down
+git pull --no-edit yaacov endpoint-status-by-what-it-does-and-not-by-type
 git push --set-upstream ilackarms all-merged --force
