@@ -16,7 +16,6 @@ cat > /etc/exports <<EOF
 EOF
 exportfs -ar
 
-# Currently this cannot be changed because hard-coded in the Dockerfile FROM of miq-app-frontend :-(
 export MIQPROJECT="cfme"
 
 export OC_USER=scweiss
@@ -30,11 +29,11 @@ oadm policy add-cluster-role-to-user cluster-admin ${OC_USER}
 oc login -u ${OC_USER}
 oc new-project ${MIQPROJECT} --skip-config-write --display-name="CloudForms"
 
-export MASTER_HOST=$(oc get nodes | grep master | awk '{print $1}')
-
 oc project ${MIQPROJECT}
 
 oc login -u ${OC_ADMIN}
+export MASTER_HOST=$(oc get nodes | grep master | awk '{print $1}')
+
 oc adm policy add-scc-to-user anyuid system:serviceaccount:${MIQPROJECT}:miq-anyuid
 oc adm policy add-scc-to-user anyuid system:serviceaccount:${MIQPROJECT}:miq-orchestrator
 oc adm policy add-scc-to-user privileged system:serviceaccount:${MIQPROJECT}:miq-privileged
