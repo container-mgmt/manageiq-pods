@@ -1,0 +1,6 @@
+{
+  "manageiq": [15864],
+  "manageiq-providers-kubernetes": [40],
+  "manageiq-providers-openshift": [22],
+  "manageiq-ui-classic": [1918]
+}

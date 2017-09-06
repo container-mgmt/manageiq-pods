@@ -10,7 +10,7 @@
         auth_key: '{{ mgmt_infra_sa_token }}'
         hostname: '{{ oo_first_master }}'
         port: 8443
-        verify_ssl: false
+        verify_ssl: true
         security_protocol: "ssl-with-validation-custom-ca"
         certificate_authority: |
           -----BEGIN CERTIFICATE-----
@@ -32,10 +32,11 @@
           XUsdmRaWiF+l4s6Dcd56SuRp5SGNa2+vP9Of/FX5
           -----END CERTIFICATE-----
       metrics:
+        auth_key: '{{ mgmt_infra_sa_token }}'
         role: 'prometheus'
         hostname: '{{ prometheus_route }}'
         port: 443
-        verify_ssl: false
+        verify_ssl: true
         security_protocol: "ssl-with-validation-custom-ca"
         certificate_authority: |
           -----BEGIN CERTIFICATE-----
@@ -57,10 +58,11 @@
           XUsdmRaWiF+l4s6Dcd56SuRp5SGNa2+vP9Of/FX5
           -----END CERTIFICATE-----
       alerts:
+        auth_key: '{{ mgmt_infra_sa_token }}'
         role: 'prometheus_alerts'
         hostname: '{{ alerts_route }}'
         port: 443
-        verify_ssl: false
+        verify_ssl: true
         security_protocol: "ssl-with-validation-custom-ca"
         certificate_authority: |
           -----BEGIN CERTIFICATE-----
