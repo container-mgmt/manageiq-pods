@@ -27,39 +27,3 @@ for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
     git push --set-upstream ilackarms all-merged --force
     popd
 done
-
-#
-#cd manageiq
-#git remote add ilackarms https://github.com/ilackarms/manageiq
-#git fetch ilackarms
-#git co -b all-merged
-#git pull --no-edit ilackarms use-my-gems
-#git pull --no-edit moolitayer new_providers
-#git push --set-upstream ilackarms all-merged --force
-#
-#cd ${BASEDIR}/manageiq-providers-kubernetes
-#for ghuser in $(echo "yaacov ilackarms moolitayer"); do
-#    git remote add ${ghuser} https://github.com/${ghuser}/manageiq-providers-kubernetes
-#    git fetch ${ghuser}
-#done
-#git co -b all-merged
-#git pull --no-edit moolitayer prometheus_alerts
-#git push --set-upstream ilackarms all-merged --force
-#
-#cd ${BASEDIR}/manageiq-providers-openshift
-#for ghuser in $(echo "ilackarms moolitayer"); do
-#    git remote add ${ghuser} https://github.com/${ghuser}/manageiq-providers-openshift
-#    git fetch ${ghuser}
-#done
-#git co -b all-merged
-#git pull --no-edit moolitayer prometheus_alerts
-#git push --set-upstream ilackarms all-merged --force
-#
-#cd ${BASEDIR}/manageiq-ui-classic
-#for ghuser in $(echo "ilackarms yaacov nimrodshn"); do
-#    git remote add ${ghuser} https://github.com/${ghuser}/manageiq-ui-classic
-#    git fetch ${ghuser}
-#done
-#git co -b all-merged
-#git pull --no-edit nimrodshn add_alert_drop_down
-#git push --set-upstream ilackarms all-merged --force
