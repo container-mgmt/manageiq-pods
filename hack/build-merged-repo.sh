@@ -39,6 +39,7 @@ for ghuser in $(echo "yaacov ilackarms moolitayer"); do
 done
 git co -b all-merged
 git pull --no-edit moolitayer prometheus_alerts
+git pull --no-edit yaacov fix-metrics-authentication
 git push --set-upstream ilackarms all-merged --force
 
 cd ${BASEDIR}/manageiq-providers-openshift
@@ -58,4 +59,5 @@ done
 git co -b all-merged
 git pull --no-edit nimrodshn add_alert_drop_down
 git pull --no-edit yaacov endpoint-status-by-what-it-does-and-not-by-type
+git pull --no-edit yaacov set-metrics-tab-validity
 git push --set-upstream ilackarms all-merged --force
