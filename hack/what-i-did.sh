@@ -56,6 +56,12 @@ oc login -u ${OC_USER}
 oc process -n ${MIQPROJECT} -f templates/miq-template.yaml \
    APPLICATION_IMG_NAME="docker.io/ilackarms/miq-app-frontend" \
    FRONTEND_APPLICATION_IMG_TAG=latest \
+   HTTPD_IMG_NAME="docker.io/ilackarms/miq-httpd" \
+   HTTPD_IMG_TAG=latest \
+   POSTGRESQL_IMG_NAME="docker.io/ilackarms/miq-postgresql" \
+   POSTGRESQL_IMG_TAG=latest \
+   MEMCACHED_IMG_NAME="docker.io/ilackarms/miq-memcached" \
+   MEMCACHED_IMG_TAG=latest \
    | oc create -n ${MIQPROJECT} -f -
 
 #oc process -f templates/prometheus.yaml NAMESPACE=${MIQPROJECT} \
