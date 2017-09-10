@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+GH_USER=${GH_USER:-ilackarms}
+
 export BASE_IMAGE="miq-app-base"
-export FINAL_IMAGE="docker.io/ilackarms/miq-app-frontend:latest"
+export FINAL_IMAGE="docker.io/${GH_USER}/miq-app-frontend:latest"
 
 pushd miq-app
-docker build -t ${BASE_IMAGE} --no-cache .
+docker build -t ${BASE_IMAGE} --no-cache --build-arg GHORG=${GH_USER} .
 popd
 
 pushd miq-app-frontend

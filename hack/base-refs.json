@@ -1,0 +1,8 @@
+{
+  "manageiq": "363606444040761ae6fb6d8fda3238491c628d0c",
+  "manageiq-appliance": "e99c8af25b4e0d31af5478236628ff8bb583e225",
+  "manageiq-schema": "6c3b4f905185acf821e135e89e766d7ca0777d95",
+  "manageiq-providers-kubernetes": "38015ada78fc0542fe4c91836da24207fd8e0d57",
+  "manageiq-providers-openshift": "08013059b939275fc8cbb55a175fca8cad30f28d",
+  "manageiq-ui-classic": "dde2351e0bbdbae5fbcfee8ed4829c83bbcde304"
+}
