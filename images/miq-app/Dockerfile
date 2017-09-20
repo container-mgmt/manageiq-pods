@@ -2,7 +2,7 @@ FROM manageiq/ruby
 MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs
-ARG REF=all-merged
+ARG REF
 ARG GHORG=ilackarms
 
 RUN echo "new build 1"
@@ -22,6 +22,7 @@ LABEL name="manageiq" \
       vendor="ManageIQ" \
       version="Master" \
       release=${REF} \
+      image_type=${IMAGE_TYPE} \
       url="http://manageiq.org/" \
       summary="ManageIQ appliance image" \
       description="ManageIQ is a management and automation platform for virtual, private, and hybrid cloud infrastructures." \

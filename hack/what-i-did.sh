@@ -23,6 +23,7 @@ export OC_ADMIN=system:admin
 export PODS_PROJECT=https://github.com/ilackarms/manageiq-pods
 export REF=all-merged
 export GHORG=ilackarms
+export IMAGE_TYPE=${IMAGE_TYPE:-unstable}
 
 oadm policy add-cluster-role-to-user cluster-admin ${OC_USER}
 
@@ -54,7 +55,7 @@ oc login -u ${OC_USER}
 #oc -n cfme new-build --name=miq-app-frontend --context-dir=images/miq-app-frontend --build-arg=REF=${REF} --build-arg=GHORG=${GHORG} ${PODS_PROJECT}
 
 oc process -n ${MIQPROJECT} -f templates/miq-template.yaml \
-   APPLICATION_IMG_NAME="docker.io/ilackarms/miq-app-frontend" \
+   APPLICATION_IMG_NAME="docker.io/ilackarms/miq-app-frontend-${IMAGE_TYPE}" \
    FRONTEND_APPLICATION_IMG_TAG=latest \
    HTTPD_IMG_NAME="docker.io/ilackarms/miq-httpd" \
    HTTPD_IMG_TAG=latest \

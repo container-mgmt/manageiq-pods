@@ -1,6 +1,5 @@
 {
   "manageiq": [15864],
-  "manageiq-schema": [],
   "manageiq-appliance": [],
   "manageiq-providers-kubernetes": [40],
   "manageiq-providers-openshift": [22],

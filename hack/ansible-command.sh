@@ -3,10 +3,10 @@
 source ${HOME}/workspace/ansible/hacking/env-setup
 
 ansible-playbook -i hosts.ini -vvv --extra-vars "mgmt_infra_sa_token=${OC_TOKEN} \
-    oo_first_master=ocp-master01.10.8.29.161.nip.io \
-    prometheus_route=prometheus-cfme.10.8.29.122.nip.io \
-    httpd_route=httpd-cfme.10.8.29.122.nip.io \
-    alerts_route=alerts-cfme.10.8.29.122.nip.io" \
+    oo_first_master=ocp-master01.10.8.29.24.nip.io \
+    httpd_route=httpd-cfme.10.8.29.197.nip.io \
+    prometheus_route=prometheus-cfme.10.8.29.197.nip.io \
+    alerts_route=alerts-cfme.10.8.29.197.nip.io" \
     ./miqplaybook.yml
 
 ansible-playbook -i hosts.ini -vvv --extra-vars "openshift_prometheus_namespace=${MIQPROJECT} \

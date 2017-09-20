@@ -15,21 +15,21 @@
         certificate_authority: |
           -----BEGIN CERTIFICATE-----
           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
-          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
+          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
-          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
+          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
           -----END CERTIFICATE-----
       metrics:
         auth_key: '{{ mgmt_infra_sa_token }}'
@@ -41,21 +41,21 @@
         certificate_authority: |
           -----BEGIN CERTIFICATE-----
           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
-          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
+          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
-          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
+          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
           -----END CERTIFICATE-----
       alerts:
         auth_key: '{{ mgmt_infra_sa_token }}'
@@ -67,21 +67,21 @@
         certificate_authority: |
           -----BEGIN CERTIFICATE-----
           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
-          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
+          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
-          SIb3DQEBCwUAA4IBAQAYRV57LUsqznSLZHA77o9+0fQetIE115DYP7wea42PODJI
-          QJ+JETEfoCr0+YOMAbVmznP9GH5cMTKEWHExcIpbMBU7nMZp6A3htcJgF2fgPzOA
-          aTUtzkuVCSrV//mbbYVxoFOc6sR3Br0wBs5+5iz3dBSt7xmgpMzZvqsQl655i051
-          gGSTIY3z5EJmBZBjwuTjal9mMoPGA4eoTPqlITJDHQ2bdCV2oDbc7zqupGrUfZFA
-          qzgieEyGzdCSRwjr1/PibA3bpwHyhD9CGD0PRVVTLhw6h6L5kuN1jA20OfzWxf/o
-          XUsdmRaWiF+l4s6Dcd56SuRp5SGNa2+vP9Of/FX5
+          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
           -----END CERTIFICATE-----
       manageiq_connection:
         url: "https://{{ httpd_route }}"
