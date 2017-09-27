@@ -33,8 +33,8 @@ for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
 
     string_escaped_repo=\"${repo}\"
     base_ref=$(cat ${BASE_REFS} | jq ".${string_escaped_repo}" -r)
-    git co ${base_ref}
-    git co -b image-stable
+    git checkout ${base_ref}
+    git checkout -b image-stable
     if [ ${repo} == ${CORE_REPO} ]; then
         git pull --no-edit ${GIT_USER} use-my-gems-stable
     fi

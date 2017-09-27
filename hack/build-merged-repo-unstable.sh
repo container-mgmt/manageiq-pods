@@ -32,7 +32,7 @@ for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
     git fetch ${GIT_USER}
 
     string_escaped_repo=\"${repo}\"
-    git co -b image-unstable
+    git checkout -b image-unstable
     if [ ${repo} == ${CORE_REPO} ]; then
         git pull --no-edit ${GIT_USER} use-my-gems-unstable
     fi
