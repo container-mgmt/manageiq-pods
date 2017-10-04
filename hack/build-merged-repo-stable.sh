@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PENDING_PRS=${PWD}/pending-prs.json
+PENDING_PRS=${PWD}/pending-prs-stable.json
 BASE_REFS=${PWD}/base-refs.json
 BASEDIR=${PWD}/manageiq-stable
 GIT_USER=${GIT_USER:-ilackarms}
@@ -24,6 +24,11 @@ if [ $1 == "push" ]; then
     exit 0
 fi
 
+if [ -z ${GIT_PASSWORD} ]; then
+    echo "enter git password for ${GIT_USER}:"
+    read -s GIT_PASSWORD
+fi
+
 for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
     echo -e "\n\n\n** DOING REPO ${repo}**\n----------------------------------------------\n"
     git clone https://github.com/ManageIQ/${repo}
@@ -41,7 +46,7 @@ for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
     for pr in $(cat ${PENDING_PRS} | jq ".${string_escaped_repo}[]" -r); do
         git fetch origin pull/${pr}/head
 #        git merge --no-edit FETCH_HEAD
-        for sha in $(curl https://api.github.com/repos/ManageIQ/${repo}/pulls/${pr}/commits | jq .[].sha -r); do
+        for sha in $(curl -u ${GIT_USER}:${GIT_PASSWORD} https://api.github.com/repos/ManageIQ/${repo}/pulls/${pr}/commits | jq .[].sha -r); do
             git cherry-pick ${sha}
         done
     done

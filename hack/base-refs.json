@@ -1,5 +1,6 @@
 {
   "manageiq": "0839a776048c049219ab7890e91c94b6c63d60b2",
+  "manageiq-api": "b5d28644f40cb0d01e87300d8b5de32c93cf5e85",
   "manageiq-appliance": "481a9ce4bbef2726ff848d8e0a3b1230f834d2b5",
   "manageiq-providers-kubernetes": "0a9976a0a8491a4fca88d724c163ad73fb40e9ec",
   "manageiq-providers-openshift": "7838864911d01122a582cfaece16f93b52464f2f",
