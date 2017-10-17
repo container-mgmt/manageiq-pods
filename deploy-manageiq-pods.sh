@@ -1,0 +1,1 @@
+hack/deploy-manageiq-pods.sh
