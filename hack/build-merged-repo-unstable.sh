@@ -3,7 +3,6 @@
 PENDING_PRS=${PWD}/pending-prs-unstable.json
 BASE_REFS=${PWD}/base-refs.json
 BASEDIR=${PWD}/manageiq-unstable
-GIT_USER=${GIT_USER:-ilackarms}
 CORE_REPO=manageiq
 
 mkdir ${BASEDIR}
@@ -11,7 +10,7 @@ cd ${BASEDIR}
 
 set -x -e
 
-if [ $1 == "push" ]; then
+if [[ $1 == "push" ]]; then
     for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
         echo -e "\n\n\n** PUSHING REPO ${repo}**\n----------------------------------------------\n"
         pushd ${repo}
@@ -24,9 +23,14 @@ if [ $1 == "push" ]; then
     exit 0
 fi
 
+if [ -z ${GIT_USER} ]; then
+    echo "enter git user: "
+    read -s GIT_USER
+fi
+
 if [ -z ${GIT_PASSWORD} ]; then
     echo "enter git password for ${GIT_USER}:"
-    read -s GIT_PASSWORD
+    read GIT_PASSWORD
 fi
 
 for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
@@ -36,7 +40,9 @@ for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
     git remote add ${GIT_USER} https://github.com/${GIT_USER}/${repo}
     git fetch ${GIT_USER}
 
+    #weird bash hack
     string_escaped_repo=\"${repo}\"
+
     git checkout -b image-unstable
     if [ ${repo} == ${CORE_REPO} ]; then
         git pull --no-edit ${GIT_USER} use-my-gems-unstable
