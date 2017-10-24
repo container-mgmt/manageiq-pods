@@ -11,6 +11,11 @@ cd ${BASEDIR}
 
 set -x -e
 
+if [ -z ${GIT_USER} ]; then
+    echo "enter git user: "
+    read GIT_USER
+fi
+
 if [[ $1 == "push" ]]; then
     for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
         echo -e "\n\n\n** PUSHING REPO ${repo}**\n----------------------------------------------\n"

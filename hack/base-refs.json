@@ -1,8 +1,8 @@
 {
-  "manageiq": "0839a776048c049219ab7890e91c94b6c63d60b2",
-  "manageiq-api": "b5d28644f40cb0d01e87300d8b5de32c93cf5e85",
-  "manageiq-appliance": "481a9ce4bbef2726ff848d8e0a3b1230f834d2b5",
-  "manageiq-providers-kubernetes": "0a9976a0a8491a4fca88d724c163ad73fb40e9ec",
-  "manageiq-providers-openshift": "7838864911d01122a582cfaece16f93b52464f2f",
-  "manageiq-ui-classic": "33e9b426822dac3e64ca840fb8aecfb9a08c87d9"
+  "manageiq": "7e0f7cde1a931f8da38a771f38ea6a6ccd9de6ba",
+  "manageiq-api": "dae645432c16c69f0f38829f0c16d25fca370a1d",
+  "manageiq-appliance": "218959f4c383f6a29908fe7abb1bb44eb1f84457",
+  "manageiq-providers-kubernetes": "f38176d2b86c06835444bc01a2c8301ef08b3c17",
+  "manageiq-providers-openshift": "ceb6d1f911fbd73e9c329dde6cf915d289efe4f5",
+  "manageiq-ui-classic": "7ae468a4c69489cc5de32ddf8a4365d3c086cd4c"
 }
