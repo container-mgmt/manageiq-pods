@@ -11,7 +11,7 @@ cd ${BASEDIR}
 
 set -x -e
 
-if [ $1 == "push" ]; then
+if [[ $1 == "push" ]]; then
     for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
         echo -e "\n\n\n** PUSHING REPO ${repo}**\n----------------------------------------------\n"
         pushd ${repo}

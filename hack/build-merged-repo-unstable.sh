@@ -7,8 +7,17 @@ CORE_REPO=manageiq
 
 mkdir ${BASEDIR}
 cd ${BASEDIR}
-
 set -x -e
+
+if [ -z ${GIT_USER} ]; then
+    echo "enter git user: "
+    read GIT_USER
+fi
+
+if [ -z ${GIT_PASSWORD} ]; then
+    echo "enter git password for ${GIT_USER}:"
+    read -s GIT_PASSWORD
+fi
 
 if [[ $1 == "push" ]]; then
     for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
@@ -21,16 +30,6 @@ if [[ $1 == "push" ]]; then
 
     echo "Push Complete"
     exit 0
-fi
-
-if [ -z ${GIT_USER} ]; then
-    echo "enter git user: "
-    read -s GIT_USER
-fi
-
-if [ -z ${GIT_PASSWORD} ]; then
-    echo "enter git password for ${GIT_USER}:"
-    read GIT_PASSWORD
 fi
 
 for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
