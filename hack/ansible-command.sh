@@ -25,6 +25,10 @@ ansible-playbook -i hosts-ansible-miq.ini -vvv --extra-vars "mgmt_infra_sa_token
     alerts_route=alerts-cfme.10.35.48.95.nip.io" \
     ./miqplaybook.yml
 
+#add container_administrator and container_operator users
+curl -k -u admin:smartvm https://httpd-openshift-management.10.35.48.75.nip.io/api/users -d '{"userid": "container_administrator_user", "password": "secret", "name": "Container Administrator User", "group": {"id": 17}}'
+curl -k -u admin:smartvm https://httpd-openshift-management.10.35.48.75.nip.io/api/users -d '{"userid": "container_operator_user", "password": "secret", "name": "Container Operator User", "group": {"id": 18}}'
+
 #stable
 ansible-playbook -i hosts.ini -vvv --extra-vars "mgmt_infra_sa_token=${OC_TOKEN} \
     oo_first_master=ocp-master01.10.35.48.74.nip.io \
