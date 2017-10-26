@@ -4,5 +4,5 @@
   "manageiq-appliance": [],
   "manageiq-providers-kubernetes": [],
   "manageiq-providers-openshift": [],
-  "manageiq-ui-classic": [2289]
+  "manageiq-ui-classic": [2289, 2497, 2491]
 }
