@@ -34,7 +34,14 @@ if [ -z ${GIT_PASSWORD} ]; then
     read -s GIT_PASSWORD
 fi
 
-for repo in $(cat ${PENDING_PRS} | jq "keys[]" -r); do
+repos=$@
+if [ $# -eq 0 ]
+  then
+    echo "doing all repos"
+    repos=$(cat ${PENDING_PRS} | jq "keys[]" -r)
+fi
+
+for repo in ${repos}; do
     echo -e "\n\n\n** DOING REPO ${repo}**\n----------------------------------------------\n"
     git clone https://github.com/ManageIQ/${repo}
     pushd ${repo}
