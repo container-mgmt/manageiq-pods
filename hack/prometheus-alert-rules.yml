@@ -10,11 +10,9 @@ groups:
       url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       message: "{{$labels.instance}} is down"
       description: "{{$labels.instance}} is down_d"
-  - alert: Dummy Alert
-    expr: up{job="kubernetes-nodes"} > 0
+  - alert: Too Many Pods
+    expr: sum(kubelet_running_pod_count) > 50
     annotations:
-      miqTarget: "ContainerNode"
       severity: "HIGH"
       url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      message: "{{$labels.instance}} is up! That's probably a good thing"
-      description: "{{$labels.instance}} is down_d"
+      message: "Too many pods! Please delete"
