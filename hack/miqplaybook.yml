@@ -4,7 +4,7 @@
   tasks:
   - name: Create a new provider in ManageIQ
     manageiq_provider:
-      name: 'EngLab Prometheus'
+      name: '{{ provider_name }}'
       type: 'Openshift'
       provider:
         auth_key: '{{ mgmt_infra_sa_token }}'
