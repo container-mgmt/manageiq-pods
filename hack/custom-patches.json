@@ -1,8 +1,8 @@
 {
   "manageiq": [],
-  "manageiq-api": [76],
+  "manageiq-api": [],
   "manageiq-appliance": [],
-  "manageiq-providers-kubernetes": [],
+  "manageiq-providers-kubernetes": ["increase-prometheus-timeout"],
   "manageiq-providers-openshift": [],
   "manageiq-ui-classic": []
 }

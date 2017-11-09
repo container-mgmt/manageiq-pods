@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 PENDING_PRS=${PWD}/pending-prs-unstable.json
+CUSTOM_PATCHES=${PWD}/custom-patches.json
 BASE_REFS=${PWD}/base-refs.json
 BASEDIR=${PWD}/manageiq-unstable
 CORE_REPO=manageiq
@@ -59,6 +60,9 @@ for repo in ${repos}; do
         for sha in $(curl -u ${GIT_USER}:${GIT_PASSWORD} https://api.github.com/repos/ManageIQ/${repo}/pulls/${pr}/commits | jq .[].sha -r); do
             git cherry-pick ${sha}
         done
+    done
+    for patch in $(cat ${CUSTOM_PATCHES} | jq ".${string_escaped_repo}[]" -r); do
+        git merge --no-edit ilackarms/${patch}
     done
     echo -e "\n** FINISHED REPO ${repo} **\n---------------------------------------------- \n"
     popd
