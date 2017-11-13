@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 # main 5 node cluster
-export HOSTS_FILE=/home/ilackarms/workspace/manageiq/manageiq-pods/hack/hosts-ansible-miq-2.ini
-export OC_TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJtYW5hZ2VtZW50LWluZnJhIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6Im1hbmFnZW1lbnQtYWRtaW4tdG9rZW4tcTl6dnIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoibWFuYWdlbWVudC1hZG1pbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjlhZGQ0MDU1LWM0ZDAtMTFlNy04NzI1LTAwMWE0YTE2MjY4YSIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDptYW5hZ2VtZW50LWluZnJhOm1hbmFnZW1lbnQtYWRtaW4ifQ.QmZK3s_3vEU7dw_CqzNyW94YpcA-UHVZaLitO7WUPG-XzWFyDupTwutrB-8-vkIh_2QMsF_Cq37fDPQ-txtV1DPd4mb31EgOReRqKxKlTPxAITZxdvr4W7yl7PGapsR1mmW_Y2__1jFjnzWeVHtMP4xjcPyAfwglLyD0ucZIN-4-hliUIFvRxKWlXioiXy3frQxqlCfJoGalMIOuEG-9ecFXvr1iKKa0WHcr-0xmngLtCBbZ7tFPU8q0qXaD7T8bTcAGJf4ZWf6owNseKcR81IrY13E3EnOeNVzGgkjfWO5zRw_hG9tTYBPkNDJ1wJeFzUMSDZCFIVlhOwCLRqRO3w
-export OO_FIRST_MASTER=ocp-master01.10.35.48.138.nip.io
-export FIRST_INFRA_IP=10.35.48.139.nip.io
+export HOSTS_FILE=/home/ilackarms/workspace/manageiq/manageiq-pods/hack/hosts-ansible-miq-2.ini && \
+export OC_TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJtYW5hZ2VtZW50LWluZnJhIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6Im1hbmFnZW1lbnQtYWRtaW4tdG9rZW4tcTl6dnIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoibWFuYWdlbWVudC1hZG1pbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjlhZGQ0MDU1LWM0ZDAtMTFlNy04NzI1LTAwMWE0YTE2MjY4YSIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDptYW5hZ2VtZW50LWluZnJhOm1hbmFnZW1lbnQtYWRtaW4ifQ.QmZK3s_3vEU7dw_CqzNyW94YpcA-UHVZaLitO7WUPG-XzWFyDupTwutrB-8-vkIh_2QMsF_Cq37fDPQ-txtV1DPd4mb31EgOReRqKxKlTPxAITZxdvr4W7yl7PGapsR1mmW_Y2__1jFjnzWeVHtMP4xjcPyAfwglLyD0ucZIN-4-hliUIFvRxKWlXioiXy3frQxqlCfJoGalMIOuEG-9ecFXvr1iKKa0WHcr-0xmngLtCBbZ7tFPU8q0qXaD7T8bTcAGJf4ZWf6owNseKcR81IrY13E3EnOeNVzGgkjfWO5zRw_hG9tTYBPkNDJ1wJeFzUMSDZCFIVlhOwCLRqRO3w && \
+export OO_FIRST_MASTER=ocp-master01.10.35.48.138.nip.io && \
+export FIRST_INFRA_IP=10.35.48.139.nip.io && \
+export DB_NAME=miq-ansible-3 &&\
 read -d '' CA_CRT << EOF
 -----BEGIN CERTIFICATE-----
 MIIC6jCCAdKgAwIBAgIBATANBgkqhkiG9w0BAQsFADAmMSQwIgYDVQQDDBtvcGVu
@@ -27,10 +28,11 @@ nCk5MEp+OdBI/rFZBBRtHCGV/kVvqPjQQnusGPXE
 EOF
 
 # kube cluster 1
-export HOSTS_FILE=/home/ilackarms/workspace/manageiq/manageiq-pods/hack/hosts-kubedemo-cluster1.ini
-export OC_TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJtYW5hZ2VtZW50LWluZnJhIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6Im1hbmFnZW1lbnQtYWRtaW4tdG9rZW4tMzlxc3YiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoibWFuYWdlbWVudC1hZG1pbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjE0MmM2YjJiLWM0Y2YtMTFlNy04OTZmLTAwMWE0YTE2MjY3OCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDptYW5hZ2VtZW50LWluZnJhOm1hbmFnZW1lbnQtYWRtaW4ifQ.PnpfZUcn4cHnjnf8sueKd32QjnJYD7JLKA1tOpywSZuuB79oL2a0KF-e7f30BJb_DR947X8aghcUJ-bnVfLzCRvSuvVnKXHe5tBFDSOCzSx7svC5a5kW6fy3Yu3woOP-DN1PUPw-eX-dLa82ieWE6qRMQwZK-sXBl8gRg_L7w0aDxBllJOou2bIkKLFl_YKmvAtlv4kbWWkE-dEjcvS-lDPpnfC7xPkKfQCfOv3z7Zvb7ia1crKVKkCVGuYSbnLGTbA6YqtZ5MMTBFIqMdUwDgmpC6pag7E66_pdV_fOIL2nPK2yg5oM8pd-6IuHF3z6zWmVF8FjGFsvnQxhT4wzOg
-export OO_FIRST_MASTER=ocp-master01.10.35.48.120.nip.io
-export FIRST_INFRA_IP=10.35.48.121.nip.io
+export HOSTS_FILE=/home/ilackarms/workspace/manageiq/manageiq-pods/hack/hosts-kubedemo-cluster1.ini && \
+export OC_TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJtYW5hZ2VtZW50LWluZnJhIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6Im1hbmFnZW1lbnQtYWRtaW4tdG9rZW4tMzlxc3YiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoibWFuYWdlbWVudC1hZG1pbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjE0MmM2YjJiLWM0Y2YtMTFlNy04OTZmLTAwMWE0YTE2MjY3OCIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDptYW5hZ2VtZW50LWluZnJhOm1hbmFnZW1lbnQtYWRtaW4ifQ.PnpfZUcn4cHnjnf8sueKd32QjnJYD7JLKA1tOpywSZuuB79oL2a0KF-e7f30BJb_DR947X8aghcUJ-bnVfLzCRvSuvVnKXHe5tBFDSOCzSx7svC5a5kW6fy3Yu3woOP-DN1PUPw-eX-dLa82ieWE6qRMQwZK-sXBl8gRg_L7w0aDxBllJOou2bIkKLFl_YKmvAtlv4kbWWkE-dEjcvS-lDPpnfC7xPkKfQCfOv3z7Zvb7ia1crKVKkCVGuYSbnLGTbA6YqtZ5MMTBFIqMdUwDgmpC6pag7E66_pdV_fOIL2nPK2yg5oM8pd-6IuHF3z6zWmVF8FjGFsvnQxhT4wzOg && \
+export OO_FIRST_MASTER=ocp-master01.10.35.48.120.nip.io && \
+export FIRST_INFRA_IP=10.35.48.121.nip.io && \
+export DB_NAME=miq-kubecon-demo-2 &&\
 read -d '' CA_CRT << EOF
 -----BEGIN CERTIFICATE-----
 MIIC6jCCAdKgAwIBAgIBATANBgkqhkiG9w0BAQsFADAmMSQwIgYDVQQDDBtvcGVu
@@ -54,10 +56,10 @@ EOF
 
 
 # kube cluster 2
-export HOSTS_FILE=/home/ilackarms/workspace/manageiq/manageiq-pods/hack/hosts-kubedemo-cluster2.ini
-export OC_TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJtYW5hZ2VtZW50LWluZnJhIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6Im1hbmFnZW1lbnQtYWRtaW4tdG9rZW4tOG01OTQiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoibWFuYWdlbWVudC1hZG1pbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6ImM3N2YzMzk5LWM0ZDAtMTFlNy1iYzJjLTAwMWE0YTE2MjY5MiIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDptYW5hZ2VtZW50LWluZnJhOm1hbmFnZW1lbnQtYWRtaW4ifQ.QKz4ACpHsBlQo4OPbiI8FEH9pOsD9vz7_08D6s5FWOYuQdPB2zY5EHxFhLSEbdwgb4MSUso5ogQ_EhQTuKAlarsgH2QAlzvMGuC25wGg-nCjmBgfyzEO7OARaF3bpvVRYVzOylzE3ow6kCeew6JqzrrYlrrQOQG7ch7AViFMwQ1Yi7GHR9HXd0ssApn5wWdAuAcsT6FbLRJr-L5k3PNiXVQy9VTtGxu0E7-Hdgfavo6itkh3_BqgEDI3Q5kybQ240_nawcLqCuYsP_Uint8nEzNtila04pqdcQGtmUMHydrx0cUKWinikUauptW4cYPqxWkhx3Apxa6WL8WNWIE_hQ
-export OO_FIRST_MASTER=ocp-master01.10.35.48.146.nip.io
-export FIRST_INFRA_IP=10.35.48.147.nip.io
+export HOSTS_FILE=/home/ilackarms/workspace/manageiq/manageiq-pods/hack/hosts-kubedemo-cluster2.ini && \
+export OC_TOKEN=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJtYW5hZ2VtZW50LWluZnJhIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6Im1hbmFnZW1lbnQtYWRtaW4tdG9rZW4tOG01OTQiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoibWFuYWdlbWVudC1hZG1pbiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6ImM3N2YzMzk5LWM0ZDAtMTFlNy1iYzJjLTAwMWE0YTE2MjY5MiIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDptYW5hZ2VtZW50LWluZnJhOm1hbmFnZW1lbnQtYWRtaW4ifQ.QKz4ACpHsBlQo4OPbiI8FEH9pOsD9vz7_08D6s5FWOYuQdPB2zY5EHxFhLSEbdwgb4MSUso5ogQ_EhQTuKAlarsgH2QAlzvMGuC25wGg-nCjmBgfyzEO7OARaF3bpvVRYVzOylzE3ow6kCeew6JqzrrYlrrQOQG7ch7AViFMwQ1Yi7GHR9HXd0ssApn5wWdAuAcsT6FbLRJr-L5k3PNiXVQy9VTtGxu0E7-Hdgfavo6itkh3_BqgEDI3Q5kybQ240_nawcLqCuYsP_Uint8nEzNtila04pqdcQGtmUMHydrx0cUKWinikUauptW4cYPqxWkhx3Apxa6WL8WNWIE_hQ && \
+export OO_FIRST_MASTER=ocp-master01.10.35.48.146.nip.io && \
+export FIRST_INFRA_IP=10.35.48.147.nip.io && \
 read -d '' CA_CRT << EOF
 -----BEGIN CERTIFICATE-----
 MIIC6jCCAdKgAwIBAgIBATANBgkqhkiG9w0BAQsFADAmMSQwIgYDVQQDDBtvcGVu
@@ -79,27 +81,13 @@ Tpn431SrxqI3mTRtAUdY/CYAQodAq9AVPXiYJ6wl+lOBl6cLBHHBh6umNhaTslDQ
 -----END CERTIFICATE-----
 EOF
 
-# run this on each master
-#!/usr/bin/env bash
-while true; do
-    for volume in $(ls -d /exports/* | grep prometheus); do
-        SIZE=$(du -hs ${volume} | awk '{print $1}')
-        if [[ ${SIZE} == [1-9]"G" ]] ; then
-            echo "Size of ${volume} has grown over 1GB, cleaning up"
-            rm -rf ${volume}
-            oc delete pod -n prometheus $(oc get pods -n prometheus | grep prometheus | awk '{print $1}')
-        fi
-    done
-    sleep 120
-done
-
 source ${HOME}/workspace/ansible/hacking/env-setup
 
 # fix oci system hooks if not done already
-for i in $(echo 51 57 58 59 69); do ssh root@10.35.48.${i} -- yum update -y oci-systemd-hook; done
+for i in $(cat hosts-* | grep 10.35.48. | sed -E 's/.*10.35.48.([0-9]*).*/\1/' | sort | uniq); do ssh root@10.35.48.${i} -- yum update -y oci-systemd-hook; done
 
 # refresh db
-dropdb -U postgres -h 10.35.48.109 miq-ansible-2 && createdb -U postgres -h  10.35.48.109 miq-ansible-2
+dropdb -U postgres -h 10.35.48.109 ${DB_NAME} && createdb -U postgres -h  10.35.48.109 ${DB_NAME}
 
 #miq pods
 ansible-playbook -i ${HOSTS_FILE} -vvv ~/workspace/openshift-ansible/playbooks/byo/openshift-management/config.yml
