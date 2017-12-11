@@ -1,9 +1,9 @@
-FROM manageiq/manageiq-pods:backend-latest
+FROM containermgmt/manageiq-pods:backend-20171211-1700
 MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs
 ARG REF=master
-ARG GHORG=ManageIQ
+ARG GHORG=container-mgmt
 
 ## Set ENV, LANG only needed if building with docker-1.8
 ENV SUI_ROOT=/opt/manageiq/manageiq-ui-service
