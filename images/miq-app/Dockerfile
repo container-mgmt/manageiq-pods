@@ -3,7 +3,7 @@ MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs
 ARG REF=master
-ARG GHORG=ManageIQ
+ARG GHORG=container-mgmt
 
 ## Set ENV, LANG only needed if building with docker-1.8
 ENV TERM=xterm \
