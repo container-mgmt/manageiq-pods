@@ -1,4 +1,4 @@
-FROM containermgmt/manageiq-pods:backend-20171217-1330
+FROM containermgmt/manageiq-pods:backend-20171218-0811
 MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs
