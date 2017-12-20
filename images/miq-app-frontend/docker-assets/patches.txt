@@ -1,6 +1,4 @@
 ---------------------------------------------------------  -----------  --------------------------------------------------
-https://github.com/ManageIQ/manageiq-api/pull/76           @zakiva      Alert Definitions: add hash_expression
 https://github.com/ManageIQ/manageiq-api/pull/177          @elad661     Allow assignments of alert profiles
 https://github.com/ManageIQ/manageiq-ui-classic/pull/2714  @moolitayer  Revert "Remove dependency of two fields in Alerts"
-https://github.com/ManageIQ/manageiq-ui-classic/pull/3091  @moolitayer  Hide the not implemented recent alerts screen
 ---------------------------------------------------------  -----------  --------------------------------------------------
