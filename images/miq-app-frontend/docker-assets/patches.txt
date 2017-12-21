@@ -5,8 +5,8 @@ https://github.com/ManageIQ/manageiq-ui-classic/pull/2714  @moolitayer  Revert "
 
 Base refs:
 
-manageiq master HEAD was https://github.com/ManageIQ/manageiq/commit/748ba9b
-manageiq-api master HEAD was https://github.com/ManageIQ/manageiq-api/commit/339ce22
-manageiq-providers-kubernetes master HEAD was https://github.com/ManageIQ/manageiq-providers-kubernetes/commit/d697e6c
+manageiq master HEAD was https://github.com/ManageIQ/manageiq/commit/faeac8b
+manageiq-api master HEAD was https://github.com/ManageIQ/manageiq-api/commit/fdf9ac5
+manageiq-providers-kubernetes master HEAD was https://github.com/ManageIQ/manageiq-providers-kubernetes/commit/139850b
 manageiq-providers-openshift master HEAD was https://github.com/ManageIQ/manageiq-providers-openshift/commit/4c59fed
-manageiq-ui-classic master HEAD was https://github.com/ManageIQ/manageiq-ui-classic/commit/0ab118d
+manageiq-ui-classic master HEAD was https://github.com/ManageIQ/manageiq-ui-classic/commit/1ac635b
