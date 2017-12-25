@@ -1,7 +1,7 @@
----------------------------------------------------------  -----------  --------------------------------------------------
+---------------------------------------------------------  -----------  ---------------------------------------
 https://github.com/ManageIQ/manageiq-api/pull/177          @elad661     Allow assignments of alert profiles
-https://github.com/ManageIQ/manageiq-ui-classic/pull/2714  @moolitayer  Revert "Remove dependency of two fields in Alerts"
----------------------------------------------------------  -----------  --------------------------------------------------
+https://github.com/ManageIQ/manageiq-ui-classic/pull/2714  @moolitayer  Conditionally update alert repeat times
+---------------------------------------------------------  -----------  ---------------------------------------
 
 Base refs:
 
