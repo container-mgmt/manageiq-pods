@@ -5,8 +5,8 @@ https://github.com/ManageIQ/manageiq-ui-classic/pull/2714  @moolitayer  Conditio
 
 Base refs:
 
-manageiq master HEAD was https://github.com/ManageIQ/manageiq/commit/700e7ab
+manageiq master HEAD was https://github.com/ManageIQ/manageiq/commit/ed4af9d
 manageiq-api master HEAD was https://github.com/ManageIQ/manageiq-api/commit/fdf9ac5
-manageiq-providers-kubernetes master HEAD was https://github.com/ManageIQ/manageiq-providers-kubernetes/commit/ba505c1
+manageiq-providers-kubernetes master HEAD was https://github.com/ManageIQ/manageiq-providers-kubernetes/commit/9eca2da
 manageiq-providers-openshift master HEAD was https://github.com/ManageIQ/manageiq-providers-openshift/commit/4c59fed
 manageiq-ui-classic master HEAD was https://github.com/ManageIQ/manageiq-ui-classic/commit/86b535f
