@@ -1,0 +1,14 @@
+unstable build, 20180107-1624 (Jenkins ID: )
+---------------------------------------------------------  -----------  --------------------------------------------------------------------------------------
+https://github.com/ManageIQ/manageiq-api/pull/177          @elad661     Allow assignments of alert profiles
+https://github.com/ManageIQ/manageiq-ui-classic/pull/2714  @moolitayer  Conditionally update alert repeat times
+https://github.com/ManageIQ/manageiq-ui-classic/pull/3183  @himdel      toolbar_chooser - add ems_container to the list of toolbars using ?display=performance
+---------------------------------------------------------  -----------  --------------------------------------------------------------------------------------
+
+Base refs:
+
+manageiq master HEAD was https://github.com/ManageIQ/manageiq/commit/57dac5a20f
+manageiq-api master HEAD was https://github.com/ManageIQ/manageiq-api/commit/15206e1e
+manageiq-providers-kubernetes master HEAD was https://github.com/ManageIQ/manageiq-providers-kubernetes/commit/af4e49f
+manageiq-providers-openshift master HEAD was https://github.com/ManageIQ/manageiq-providers-openshift/commit/e1f4ca1
+manageiq-ui-classic master HEAD was https://github.com/ManageIQ/manageiq-ui-classic/commit/dee7ecf8b
