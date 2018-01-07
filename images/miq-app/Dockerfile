@@ -3,7 +3,7 @@ MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs
 ARG REF=master
-ARG GHORG=ManageIQ
+ARG GHORG=container-mgmt
 
 ## Set ENV, LANG only needed if building with docker-1.8
 ENV TERM=xterm \
@@ -69,7 +69,7 @@ RUN mkdir -p ${APPLIANCE_ROOT} && \
 ## GIT clone manageiq
 RUN mkdir -p ${APP_ROOT} && \
     ln -vs ${APP_ROOT} /opt/manageiq/manageiq && \
-    curl -L https://github.com/${GHORG}/manageiq/tarball/${REF} | tar vxz -C ${APP_ROOT} --strip 1
+    curl -L https://github.com/${GHORG}/manageiq/tarball/patched-unstable-20180107-1626 | tar vxz -C ${APP_ROOT} --strip 1
 
 ## Setup environment
 RUN ${APPLIANCE_ROOT}/setup && \
