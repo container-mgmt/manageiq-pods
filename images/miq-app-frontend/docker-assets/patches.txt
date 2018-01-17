@@ -1,0 +1,13 @@
+unstable build, 20180117-0811 (Jenkins ID: 70)
+---------------------------------------------------------  -----------  ---------------------------------------
+https://github.com/ManageIQ/manageiq-api/pull/177          @elad661     Allow assignments of alert profiles
+https://github.com/ManageIQ/manageiq-ui-classic/pull/2714  @moolitayer  Conditionally update alert repeat times
+---------------------------------------------------------  -----------  ---------------------------------------
+
+Base refs:
+
+manageiq master HEAD was https://github.com/ManageIQ/manageiq/commit/600392e
+manageiq-api master HEAD was https://github.com/ManageIQ/manageiq-api/commit/cdc4c68
+manageiq-providers-kubernetes master HEAD was https://github.com/ManageIQ/manageiq-providers-kubernetes/commit/3087870
+manageiq-providers-openshift master HEAD was https://github.com/ManageIQ/manageiq-providers-openshift/commit/cea6efe
+manageiq-ui-classic master HEAD was https://github.com/ManageIQ/manageiq-ui-classic/commit/256e9aa
