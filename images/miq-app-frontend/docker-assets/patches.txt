@@ -1,0 +1,12 @@
+unstable build, 20180213-0411 (Jenkins ID: 104)
+-------------------------------------------------  --------  -----------------------------------
+https://github.com/ManageIQ/manageiq-api/pull/177  @elad661  Allow assignments of alert profiles
+-------------------------------------------------  --------  -----------------------------------
+
+Base refs:
+
+manageiq master HEAD was https://github.com/ManageIQ/manageiq/commit/04aea3e
+manageiq-api master HEAD was https://github.com/ManageIQ/manageiq-api/commit/1e6328a
+manageiq-providers-kubernetes master HEAD was https://github.com/ManageIQ/manageiq-providers-kubernetes/commit/1609a68
+manageiq-providers-openshift master HEAD was https://github.com/ManageIQ/manageiq-providers-openshift/commit/d739bc2
+manageiq-ui-classic master HEAD was https://github.com/ManageIQ/manageiq-ui-classic/commit/749c538
