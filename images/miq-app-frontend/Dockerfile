@@ -1,4 +1,4 @@
-FROM manageiq/manageiq-pods:backend-latest
+FROM containermgmt/manageiq-pods-stable:backend-stable-20180314-0920
 MAINTAINER ManageIQ https://github.com/ManageIQ/manageiq-appliance-build
 
 ## Set build ARGs
@@ -62,3 +62,4 @@ COPY docker-assets/manageiq-http.conf /etc/httpd/conf.d
 
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--single-child", "--"]
 CMD ["entrypoint"]
+COPY docker-assets/patches.txt /patches.txt
