@@ -1,0 +1,10 @@
+stable build, 20180330-0920 (Jenkins ID: 89)
+
+
+Base refs:
+
+manageiq gaprindashvili HEAD was https://github.com/ManageIQ/manageiq/commit/d3fee1b
+manageiq-api gaprindashvili HEAD was https://github.com/ManageIQ/manageiq-api/commit/1035373
+manageiq-providers-kubernetes gaprindashvili HEAD was https://github.com/ManageIQ/manageiq-providers-kubernetes/commit/062d26c
+manageiq-providers-openshift gaprindashvili HEAD was https://github.com/ManageIQ/manageiq-providers-openshift/commit/8df7032
+manageiq-ui-classic gaprindashvili HEAD was https://github.com/ManageIQ/manageiq-ui-classic/commit/9b3ce84
